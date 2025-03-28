@@ -30,12 +30,12 @@
                 <p>استمتع بصوت نقي وعميق مع تقنية بلوتوث 5.0.</p>
             </div>
             <div class="feature-item">
-                <img src="2.jpg" alt="Feature 2">
+                <img src="3.jpg" alt="Feature 2">
                 <h3>تصميم قابل للطي</h3>
                 <p>حامل قابل للتعديل لتوفير أفضل زاوية مشاهدة.</p>
             </div>
             <div class="feature-item">
-                <img src="2.jpg" alt="Feature 3">
+                <img src="4.jpg" alt="Feature 3">
                 <h3>متعدد الاستخدامات</h3>
                 <p>مثالي للموسيقى، الأفلام، أو مكالمات الفيديو.</p>
             </div>
@@ -75,7 +75,7 @@
     <section class="final-cta" style="background-image: url('3.jpg');">
         <div class="cta-content">
             <h2>احصل على Audio Bracket الآن!</h2>
-            <p>استمتع بتجربة ترفيهية متكاملة مع شاحن باور بنك مدمج - خصم 20% لفترة محدودة!</p>
+            <p>استمتع بتجربة ترفيهية متكاملة مع شاحن باور بنك مدمج - خصم 30% لفترة محدودة!</p>
             <!-- نموذج الإدخال -->
             <form class="cta-form" id="order-form">
                 <div class="form-group">
@@ -99,23 +99,18 @@
     <footer class="footer">
         <div class="footer-content">
             <p>© 2025 Audio Bracket. جميع الحقوق محفوظة.</p>
-            <div class="footer-links">
-                <a href="#">اتصل بنا</a>
-                <a href="#">سياسة الإرجاع</a>
-                <a href="#">الأسئلة الشائعة</a>
-            </div>
-           
+            
         </div>
     </footer>
 
     <!-- إضافة مكتبة intl-tel-input -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-        // تهيئة حقل رقم الهاتف مع مفاتيح الدول
+        // تهيئة حقل رقم الهاتف مع مفتاح دولة الكويت فقط
         const phoneInputField = document.querySelector("#phone-number");
         const phoneInput = window.intlTelInput(phoneInputField, {
-            initialCountry: "sa", // الدولة الافتراضية (السعودية)
-            preferredCountries: ["sa", "ae", "eg", "kw"], // الدول المفضلة
+            initialCountry: "kw", // الدولة الافتراضية (الكويت)
+            onlyCountries: ["kw"], // عرض الكويت فقط في القائمة
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         });
 
