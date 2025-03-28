@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- إضافة مكتبة intl-tel-input لمفاتيح الدول -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
-    <!-- إضافة مكتبة EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -32,12 +30,12 @@
                 <p>استمتع بصوت نقي وعميق مع تقنية بلوتوث 5.0.</p>
             </div>
             <div class="feature-item">
-                <img src="3.jpg" alt="Feature 2">
+                <img src="2.jpg" alt="Feature 2">
                 <h3>تصميم قابل للطي</h3>
                 <p>حامل قابل للتعديل لتوفير أفضل زاوية مشاهدة.</p>
             </div>
             <div class="feature-item">
-                <img src="4.jpg" alt="Feature 3">
+                <img src="2.jpg" alt="Feature 3">
                 <h3>متعدد الاستخدامات</h3>
                 <p>مثالي للموسيقى، الأفلام، أو مكالمات الفيديو.</p>
             </div>
@@ -53,7 +51,7 @@
     <section class="gallery">
         <h2>اكتشف Audio Bracket من كل زاوية</h2>
         <div class="gallery-container">
-            <img src="2.jpg" alt="Product Image 1" class="gallery-image">
+            <img src="3.jpg" alt="Product Image 1" class="gallery-image">
             <img src="2.jpg" alt="Product Image 2" class="gallery-image">
         </div>
     </section>
@@ -100,9 +98,13 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
-           
             <p>© 2025 Audio Bracket. جميع الحقوق محفوظة.</p>
-            
+            <div class="footer-links">
+                <a href="#">اتصل بنا</a>
+                <a href="#">سياسة الإرجاع</a>
+                <a href="#">الأسئلة الشائعة</a>
+            </div>
+           
         </div>
     </footer>
 
@@ -117,12 +119,7 @@
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         });
 
-        // تهيئة EmailJS
-        (function() {
-            emailjs.init("YOUR_USER_ID"); // استبدل YOUR_USER_ID بـ User ID من EmailJS
-        })();
-
-        // التعامل مع إرسال النموذج
+        // التعامل مع إرسال النموذج إلى واتساب
         document.getElementById("order-form").addEventListener("submit", function(event) {
             event.preventDefault(); // منع إعادة تحميل الصفحة
 
@@ -131,19 +128,18 @@
             const phoneNumber = phoneInput.getNumber(); // الحصول على رقم الهاتف مع مفتاح الدولة
             const address = document.getElementById("address").value;
 
-            // إرسال البيانات عبر EmailJS
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-                full_name: fullName,
-                phone_number: phoneNumber,
-                address: address
-            })
-            .then(function(response) {
-                alert("تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.");
-                document.getElementById("order-form").reset(); // إعادة تعيين النموذج
-            }, function(error) {
-                alert("حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى لاحقًا.");
-                console.error("Error:", error);
-            });
+            // إنشاء رسالة واتساب
+            const message = `طلب جديد من Audio Bracket:\nالاسم: ${fullName}\nرقم الهاتف: ${phoneNumber}\nالعنوان: ${address}`;
+            const encodedMessage = encodeURIComponent(message);
+
+            // إنشاء رابط واتساب
+            const whatsappUrl = `https://wa.me/96555956551?text=${encodedMessage}`;
+
+            // فتح واتساب في نافذة جديدة
+            window.open(whatsappUrl, "_blank");
+
+            // إعادة تعيين النموذج بعد الإرسال
+            document.getElementById("order-form").reset();
         });
     </script>
 </body>
